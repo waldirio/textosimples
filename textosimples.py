@@ -11,7 +11,8 @@ class TextoSimples:
                 "on_btnreset_clicked":  self.btnreset_clicked,
                 "on_btnsoma_clicked":   self.btnsoma_clicked,  
                 "on_btnsobre_clicked":  self.btnsobre_clicked,
-                "on_btnfechar_clicked":  self.btnfechar_clicked,             
+                "on_btnfechar_clicked":  self.btnfechar_clicked,
+                "on_MainWindow_destroy":  self.exit,             
                }
         self.xml.signal_autoconnect(dic)
         self.window = self.xml.get_widget('MainWindow')
@@ -22,6 +23,10 @@ class TextoSimples:
         #textSoma = self.xml.get_widget('textsoma')
         
         
+    def exit(self,widget):
+        print 'saindo ...'
+        sys.exit()
+    
     def btnfechar_clicked(self,widget):
         print 'close do sobre'    
         self.xml.get_widget('sobre').hide()
